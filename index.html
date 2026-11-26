@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>배구 서브 게임</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🏐 서브 &amp; 리시브</h1>
+    <label class="server-pick">서버
+      <select id="serverSelect"></select>
+    </label>
+  </header>
+
+  <main>
+    <div id="stage">
+      <canvas id="court"></canvas>
+    </div>
+
+    <div id="controls">
+      <p id="hint">상대 코트를 눌러 서브할 곳을 정하세요</p>
+      <button id="actionBtn" disabled>서브 토스</button>
+    </div>
+
+    <section id="stats">
+      <h2>서브 기록</h2>
+      <div id="statGrid"></div>
+      <p id="statSummary"></p>
+      <button id="resetStats" class="small">기록 지우기</button>
+    </section>
+
+    <details id="settings">
+      <summary>선수 능력치 바꾸기</summary>
+      <p class="note">숫자는 0~100. 바꾸면 바로 적용되고, 이 브라우저에 저장돼요.</p>
+      <h3>우리 팀 (서버)</h3>
+      <table id="ourTable"></table>
+      <h3>상대 팀 (리시버)</h3>
+      <table id="oppTable"></table>
+      <button id="resetPlayers" class="small">기본값으로 되돌리기</button>
+    </details>
+
+    <details id="help">
+      <summary>하는 방법</summary>
+      <ol>
+        <li>위쪽(상대) 코트를 눌러 서브할 곳을 정해요. 서브 정확도가 높은 선수일수록 원이 작아요.</li>
+        <li><b>서브 토스</b> 버튼(또는 스페이스바)을 누르면 바깥 링이 줄어들기 시작해요.</li>
+        <li>링이 원과 딱 겹칠 때 <b>때리기!</b>를 누르세요. 성공하면 원 안 어딘가에, 실패하면 훨씬 넓은 곳에 공이 떨어져요.</li>
+        <li>가장 가까운 상대 선수가 리시브하고, 결과가 배구 기록 방식으로 나와요.</li>
+      </ol>
+      <p class="legend">
+        <b>#</b> 완벽 · <b>+</b> 좋음 · <b>!</b> 보통 · <b>-</b> 나쁨 · <b>/</b> 넘어감 · <b>=</b> 범실(서브 에이스)
+      </p>
+    </details>
+  </main>
+
+  <script src="js/rules.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
